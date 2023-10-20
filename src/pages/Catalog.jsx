@@ -1,11 +1,14 @@
 import List from 'components/List/List';
+import { CatalogSection } from 'components/Catalog/Catalog.styled';
+import { Container } from 'components/Container/Container.styled';
 
 const CatalogPage = () => {
   return (
-    <section>
-      <h2>CatalogPage</h2>
-      <List />
-    </section>
+    <CatalogSection>
+      <Container>
+        <List />
+      </Container>
+    </CatalogSection>
   );
 };
 

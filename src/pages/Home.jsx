@@ -1,8 +1,14 @@
+import Hero from 'components/Hero/Hero';
+import { HeroSection } from 'components/Hero/Hero.styled';
+import { Container } from 'components/Container/Container.styled';
+
 const HomePage = () => {
   return (
-    <section>
-      <h2>HomePage</h2>
-    </section>
+    <HeroSection>
+      <Container>
+        <Hero />
+      </Container>
+    </HeroSection>
   );
 };
 
