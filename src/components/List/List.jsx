@@ -1,11 +1,14 @@
-import Card from 'components/Card/Card';
+import CarCard from 'components/Card/Card';
+import { ItemsList } from './List.styled';
 
-const List = () => {
+const CarsList = ({ allCars }) => {
   return (
-    <ul>
-      <Card />
-    </ul>
+    <ItemsList>
+      {allCars.map(car => (
+        <CarCard car={car} key={car.id + car.mileage} />
+      ))}
+    </ItemsList>
   );
 };
 
-export default List;
+export default CarsList;
