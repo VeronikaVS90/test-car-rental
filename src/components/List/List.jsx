@@ -1,13 +1,27 @@
 import CarCard from 'components/Card/Card';
-import { ItemsList } from './List.styled';
+import { ItemsList, LoadMoreBtn } from './List.styled';
+import { useState } from 'react';
 
 const CarsList = ({ allCars }) => {
+  const [loadMore, setLoadMore] = useState(false);
+
+  const carsToRender = allCars.slice(0, loadMore ? allCars.length : 8);
+
+  if (!allCars.length) return <div>This cars list is empty yet!</div>;
+
   return (
-    <ItemsList>
-      {allCars.map(car => (
-        <CarCard car={car} key={car.id + car.mileage} />
-      ))}
-    </ItemsList>
+    <>
+      <ItemsList>
+        {carsToRender.map(car => (
+          <CarCard car={car} key={car.id + car.mileage} />
+        ))}
+      </ItemsList>
+      {!loadMore && allCars.length > 8 && (
+        <LoadMoreBtn type="button" onClick={setLoadMore}>
+          Load more
+        </LoadMoreBtn>
+      )}
+    </>
   );
 };
 

@@ -67,4 +67,96 @@ html {
 
 button {
   cursor: pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(18, 20, 23, 0.1);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+.filter-brand .filter-select__control,
+.filter-price .filter-select__control {
+  width: 224px;
+  height: 48px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: none;
+  background-color: #f7f7fb;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+}
+.filter-brand .filter-select__control--menu-is-open .filter-select__indicator,
+.filter-price .filter-select__control--menu-is-open .filter-select__indicator {
+  rotate: 180deg;
+}
+.filter-brand .filter-select__input-container,
+.filter-price .filter-select__input-container {
+  cursor: text;
+  margin: 0;
+  padding: 0;
+}
+.filter-brand .filter-select__value-container,
+.filter-price .filter-select__value-container {
+  padding: 0;
+  margin: 0;
+}
+.filter-brand .filter-select__indicator,
+.filter-price .filter-select__indicator {
+  padding: 0;
+  color: #121417;
+  transition: rotate 250ms linear;
+  cursor: pointer;
+}
+.filter-brand .filter-select__placeholder,
+.filter-price .filter-select__placeholder {
+  color: #121417;
+}
+.filter-brand .filter-select__single-value,
+.filter-price .filter-select__single-value {
+  margin: 0;
+}
+.filter-brand .filter-select__menu,
+.filter-price .filter-select__menu {
+  border-radius: 14px;
+  padding-right: 8px;
+}
+.filter-brand .filter-select__menu-list,
+.filter-price .filter-select__menu-list {
+  max-height: 272px;
+  padding: 14px 18px;
+  color: rgba(18, 20, 23, 0.2);
+}
+.filter-brand .filter-select__option,
+.filter-price .filter-select__option {
+  cursor: pointer;
+  margin-bottom: 8px;
+  padding: 0;
+  background-color: inherit;
+  font-size: 14px;
+  line-height: 1.2857142857;
+}
+.filter-brand .filter-select__option--is-selected,
+.filter-price .filter-select__option--is-selected {
+  color: #121417;
+}
+.filter-brand .filter-select__indicator-separator,
+.filter-price .filter-select__indicator-separator {
+  background-color: inherit;
 }/*# sourceMappingURL=index.css.map */
