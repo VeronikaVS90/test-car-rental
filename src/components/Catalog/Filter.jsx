@@ -6,27 +6,14 @@ import {
   BeforeInputWrapper,
   SubmitButton,
 } from './Filter.styled';
-import makes from 'data/makes.json';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useController, useForm } from 'react-hook-form';
 import { validationSchema } from './filterSchema';
-
-const brands = makes.map(make => ({ value: make, label: make }));
-const pricesPerHour = [
-  { value: 10, label: 10 },
-  { value: 20, label: 20 },
-  { value: 30, label: 30 },
-  { value: 40, label: 40 },
-  { value: 50, label: 50 },
-  { value: 60, label: 60 },
-  { value: 70, label: 70 },
-  { value: 80, label: 80 },
-  { value: 90, label: 90 },
-  { value: 100, label: 100 },
-];
+import { brands, pricesPerHour } from 'data/filter';
+import { formatMileage, getClearNumber } from 'helpers/formatMileage';
 
 const Filter = ({ cars, setFiltered }) => {
-  const { register, handleSubmit, control, getValues } = useForm({
+  const { register, handleSubmit, control, getValues, setValue } = useForm({
     defaultValues: { brand: '', price: '', mileageFrom: '', mileageTo: '' },
     resolver: yupResolver(validationSchema),
   });
@@ -48,8 +35,10 @@ const Filter = ({ cars, setFiltered }) => {
 
           return rentalPrice <= price;
         })
-        .filter(({ mileage }) => mileage > mileageFrom)
-        .filter(({ mileage }) => (mileageTo ? mileage < mileageTo : mileage))
+        .filter(({ mileage }) => mileage > getClearNumber(mileageFrom))
+        .filter(({ mileage }) =>
+          mileageTo ? mileage < getClearNumber(mileageTo) : mileage
+        )
     );
 
   return (
@@ -81,20 +70,28 @@ const Filter = ({ cars, setFiltered }) => {
         <FormLabel>Car mileage / km</FormLabel>
         <BeforeInputWrapper>
           <MileageInput
-            className="from"
-            type="number"
-            min={0}
-            max={Number(getValues().mileageTo) || null}
             {...register('mileageFrom')}
+            className="from"
+            type="text"
+            min={0}
+            max={getClearNumber(getValues().mileageTo) || null}
+            maxLength={7}
+            onChange={({ target }) =>
+              setValue('mileageFrom', formatMileage(target.value))
+            }
           />
           <span>From</span>
         </BeforeInputWrapper>
         <BeforeInputWrapper>
           <MileageInput
-            className="to"
-            type="number"
-            min={Number(getValues().mileageFrom) || 0}
             {...register('mileageTo')}
+            className="to"
+            type="text"
+            min={getClearNumber(getValues().mileageFrom) || 0}
+            maxLength={7}
+            onChange={({ target }) =>
+              setValue('mileageTo', formatMileage(target.value))
+            }
           />
           <span>To</span>
         </BeforeInputWrapper>
