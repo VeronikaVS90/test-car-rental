@@ -1,11 +1,15 @@
 import { BsStackOverflow } from 'react-icons/bs';
-import { FiFilter } from 'react-icons/fi';
+import { SiAmazoncloudwatch } from 'react-icons/si';
 import { Empty, EmptyDescription } from './Empty.styled';
 
 const EmptySection = ({ children, filter = false }) => {
   return (
     <Empty>
-      {filter ? <FiFilter size={100} /> : <BsStackOverflow size={100} />}
+      {filter ? (
+        <SiAmazoncloudwatch size={100} />
+      ) : (
+        <BsStackOverflow size={100} />
+      )}
       <EmptyDescription>{children}</EmptyDescription>
     </Empty>
   );

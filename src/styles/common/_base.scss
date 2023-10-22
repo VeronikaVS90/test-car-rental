@@ -10,8 +10,10 @@ body {
     line-height: 1.28;
     color: $primary-white;
 
-    background-image: radial-gradient(circle,
+    background-image: radial-gradient(circle at center,
             rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) 20%,
+            /* Додано більше прозорого тут */
             rgba(0, 0, 0, 1) 120%),
         url('../../images/car.jpg');
 

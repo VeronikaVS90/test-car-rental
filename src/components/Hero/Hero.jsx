@@ -3,7 +3,7 @@ const { HeroTitle, HeroDescription, HeroLink } = require('./Hero.styled');
 const Hero = () => {
   return (
     <>
-      <HeroTitle>Welcome to the Car Rental App!</HeroTitle>
+      <HeroTitle>The Car Rental App</HeroTitle>
       <HeroDescription>
         Discover the freedom of the open road with our premier car rental
         service. Whether you're planning a weekend getaway or a cross-country
@@ -12,7 +12,7 @@ const Hero = () => {
         your journey begins here. Start exploring, start driving, and make
         unforgettable memories with us. Book your dream car today!
       </HeroDescription>
-      <HeroLink to="/catalog">Let's go!</HeroLink>
+      <HeroLink to="/catalog">Start</HeroLink>
     </>
   );
 };

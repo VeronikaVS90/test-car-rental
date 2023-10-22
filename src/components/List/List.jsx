@@ -9,11 +9,7 @@ const CarsList = ({ allCars }) => {
   const carsToRender = allCars.slice(0, loadMore ? allCars.length : 8);
 
   if (carsToRender.length === 0)
-    return (
-      <EmptySection filter>
-        There is no cars. Please, change the filter settings and try again
-      </EmptySection>
-    );
+    return <EmptySection filter>There are no cars yet...</EmptySection>;
 
   return (
     <>

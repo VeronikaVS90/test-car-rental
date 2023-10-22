@@ -4,7 +4,7 @@ import { colors, transition } from 'styles/common/vars';
 
 export const PageHeader = styled.header`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   width: 100%;
   height: 100px;
   background-color: ${colors.secondaryFontColor};
@@ -33,12 +33,10 @@ export const NavigationLink = styled(NavLink)`
   &:hover,
   &:focus {
     color: ${colors.accentHoverColor};
-    background-color: #fff;
   }
 
   &.active {
     color: ${colors.accentColor};
-    border-bottom: 4px solid ${colors.accentColor};
-    background-color: #fff;
+    border-bottom: 4px solid ${colors.primaryWhite};
   }
 `;
