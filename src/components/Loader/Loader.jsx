@@ -1,8 +1,8 @@
-import { Oval } from 'react-loader-spinner';
+import { Puff } from 'react-loader-spinner';
 import { colors } from 'styles/common/vars';
 
 const LoadingSpinner = () => (
-  <Oval
+  <Puff
     width={150}
     wrapperStyle={{ justifyContent: 'center', paddingTop: '5%' }}
     secondaryColor={colors.accentColor}
