@@ -25,7 +25,7 @@ const FavoritesPage = () => {
           <LoadingSpinner />
         ) : wishlist.length === 0 ? (
           <EmptySection>
-            There is no cars in your favorite list yet
+            There are no cars in your favorite list yet...
           </EmptySection>
         ) : (
           <CarsList allCars={filteredWishlist} />
